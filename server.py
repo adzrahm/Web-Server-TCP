@@ -61,6 +61,10 @@ def main(): # Main program
 
     serverSocket.close()
     sys.exit()
+    
+    # Membuat thread baru untuk menangani permintaan dari client
+    thread = threading.Thread(target=handleRequest, args=(connectionSocket,))
+    thread.start()
 
 if __name__ == '__main__':
     main()
